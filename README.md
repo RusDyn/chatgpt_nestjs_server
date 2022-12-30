@@ -1,7 +1,7 @@
 # Simple NestJs ChatGPT Server 
 ####  to use ChatGPT as API
 
-used @transitive-bullshit/chatgpt-api under the hood
+uses https://github.com/transitive-bullshit/chatgpt-api under the hood
 
 ## Usage
 - rename .env.example to .env
