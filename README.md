@@ -1,4 +1,4 @@
-# Simple NestJs ChatGPT Server 
+# Simple ChatGPT NestJs Server 
 ####  to use ChatGPT as API
 
 uses https://github.com/transitive-bullshit/chatgpt-api under the hood
