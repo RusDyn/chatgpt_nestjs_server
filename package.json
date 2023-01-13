@@ -29,7 +29,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/schedule": "^2.1.0",
     "@types/cron": "^2.0.0",
-    "chatgpt": "^3.3.10",
+    "chatgpt": "^3.4.1",
     "crypto-random-string": "3.3.1",
     "dotenv": "^16.0.3",
     "linkedin-profile-scraper": "^2.3.1",
