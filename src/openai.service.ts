@@ -42,6 +42,10 @@ export class OpenAIService {
     }
     async sendMessage(message: string, parentMessageId?: string) {
 
+        if (!message || message.length === 0) {
+            throw new Error("Message is empty");
+        }
+
         let tries = 5;
         while (tries > 0) {
             try {
@@ -56,6 +60,7 @@ export class OpenAIService {
                 })
                 return res;
             } catch (e) {
+
                 console.log(e);
                 this.logger.error(e);
                 await delay(10000);
