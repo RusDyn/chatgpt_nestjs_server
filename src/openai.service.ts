@@ -1,4 +1,5 @@
 import { Injectable, Logger } from "@nestjs/common";
+import { delay } from "rxjs";
 
 export const importDynamic = new Function('modulePath', 'return import(modulePath)');
 
@@ -57,6 +58,7 @@ export class OpenAIService {
             } catch (e) {
                 console.log(e);
                 this.logger.error(e);
+                await delay(10000);
             }
         }
     }
