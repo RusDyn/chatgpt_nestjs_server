@@ -21,3 +21,24 @@ export class SecretKeyGuard implements CanActivate {
         return false;
     }
 }
+
+@Injectable()
+export class SecretGetKeyGuard implements CanActivate {
+    canActivate(
+        context: ExecutionContext,
+    ): boolean | Promise<boolean> | Observable<boolean> {
+        if (process.env.SECRET_KEY === undefined) {
+            return true;
+        }
+
+        const request = context.switchToHttp().getRequest();
+        const query = request.query;
+        const secret = query.secret;
+
+        if (secret === process.env.SECRET_KEY) {
+            return true;
+        }
+
+        return false;
+    }
+}
