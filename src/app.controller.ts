@@ -9,7 +9,7 @@ export class AppController {
 
   @Post("/sendMessage")
   @UseGuards(SecretKeyGuard)
-  async getStatus(@Body() body) {
+  async sendMessage(@Body() body) {
 
     const { text: message, conversationId } = body;
 
