@@ -1,13 +1,26 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { OpenAIService } from './openai.service';
+import { SecretKeyGuard } from './secretKey.guard';
 
 @Controller()
 export class AppController {
 
   constructor(private aiService: OpenAIService) { }
 
-  @Get("/sendMessage")
-  getStatus(@Query("text") text, @Query("conversationId") conversationId, @Query("messageId") messageId) {
-    return this.aiService.sendMessage(text, conversationId, messageId);
+  @Post("/sendMessage")
+  @UseGuards(SecretKeyGuard)
+  async getStatus(@Body() body) {
+
+    const { text: message, conversationId } = body;
+
+
+    const result = await this.aiService.sendMessage(message, conversationId);
+    if (!result) {
+      throw new Error("Error in result");
+    }
+    const { id, text } = result;
+    return {
+      id, text
+    }
   }
 }

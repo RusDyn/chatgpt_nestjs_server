@@ -1,6 +1,6 @@
 {
   "name": "back",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "",
   "author": "",
   "private": true,
@@ -13,7 +13,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "nodemon --config nodemon.json",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -29,21 +29,13 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/schedule": "^2.1.0",
     "@types/cron": "^2.0.0",
-    "chatgpt": "^3.4.1",
+    "chatgpt": "^5.0.7",
     "crypto-random-string": "3.3.1",
     "dotenv": "^16.0.3",
-    "linkedin-profile-scraper": "^2.3.1",
-    "openai": "^3.1.0",
-    "puppeteer": "^19.4.1",
-    "puppeteer-extra": "^3.3.4",
-    "puppeteer-extra-plugin-recaptcha": "^3.6.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.1",
-    "puppeteer-extra-plugin-user-data-dir": "^2.4.0",
-    "puppeteer-extra-plugin-user-preferences": "^2.4.0",
+    "nodemon": "^2.0.21",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0",
-    "user-agents": "^1.0.1230"
+    "rxjs": "^7.2.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -67,8 +59,5 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "4.1.0",
     "typescript": "^4.7.4"
-  },
-  "resolutions": {
-    "linkedin-profile-scraper/puppeteer": "^19.4.0"
   }
 }

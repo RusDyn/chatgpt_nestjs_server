@@ -1,43 +1,35 @@
-# Simple ChatGPT NestJs Server 
+## Simple web server ChatGPT + NestJS
 ####  to use ChatGPT as API
 
 uses https://github.com/transitive-bullshit/chatgpt-api under the hood
 
-## Problem
-No public API exists right now for ChatGPT.
-Existing api wrapper requires to setup server in headfull mode
 
-Solution
-- buy simple cheap private windows server with RDP. 
-- start your own server on it
-- use as remote api
 
 ## Usage
 - rename .env.example to .env
-- set login and password inside env file
+- set OPENAI_API_KEY inside env file
+- (optional) SECRET_KEY if you want to add more security to your requests
 - install requirements with npm install or yarn install
 - start with npm run start:dev or yarn run start:dev
 
 
-## Methods
-``` 
+## Methods 
 /sendMessage
-GET request
-- sends message to ChatGPT and returns response
+POST request
+- sends message to ChatGPT
+- returns response as json 
+```
+{
+    id, // conversation id
+    text, // result message
+}
+```
 
-query parameters:
+body parameters:
 - text - prompt message
 - conversationId - (optional) previous conversation id
-- messageId - (optional) previous message id
+- secret - (optional) secret key if process.env.SECRET_KEY is set
 
-returns
-result of the request
-```
-
-## example request
-```
-/sendMessage?text=Hello!
-```
 
 ### Where to get a remote server?
 I recommend ZomRo as one of the cheapest, stable and fast. 
